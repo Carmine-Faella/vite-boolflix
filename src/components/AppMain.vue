@@ -17,20 +17,38 @@ export default{
 </script>
 
 <template>
-    <div>
-        <h1>Film</h1>
-        <div v-for="film,index in store.filmList" :key="index">
-            <AppCardFilm :film-title="film.original_title"/>
+
+    <div class="container">
+        <div class="row">
+            
+                <h1>Film</h1>
+                <div v-for="film,index in store.filmList" :key="index">
+                    <AppCardFilm 
+                    :filmTitle="film.original_title"
+                    :title="film.title"
+                    :languageFilm="film.original_language"
+                    :vote="film.vote_average"
+                    />
+                </div>
+    
+        </div>
+        <div class="row">
+            
+                <h1>Serie Tv</h1>
+                <div v-for="series,index in store.seriesList" :key="index">
+                    <AppCardSeries 
+                    :seriesTitle="series.original_name"
+                    :name="series.name"
+                    :languageSeries="series.original_language"
+                    :voteSeries="series.vote_average"
+                    />
+                </div>
+        
         </div>
     </div>
-    <div>
-        <h1>Serie Tv</h1>
-        <div v-for="series,index in store.seriesList" :key="index">
-            <AppCardFilm :seriesTitle="series.original_name"/>
-        </div>
-    </div>
-  
+
 </template>
 
 <style scoped lang="scss">
+
 </style>
