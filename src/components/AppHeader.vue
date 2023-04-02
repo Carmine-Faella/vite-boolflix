@@ -12,12 +12,14 @@ export default{
 
 <template>
 
-    <div>
-        <input type="text" placeholder="Search" v-model="store.search">
-        <button @click="$emit('doSearch')">Cerca</button>
+    <div class="container">
+        <div class="row">
+            <input type="text" placeholder="Search" v-model="store.search" @keyup.enter="$emit('doSearch')" class="col-4">
+        </div>
     </div>
   
 </template>
 
 <style scoped lang="scss">
+@use '../styles/general.scss' as *;
 </style>

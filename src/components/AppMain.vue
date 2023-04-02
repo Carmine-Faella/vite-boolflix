@@ -1,4 +1,5 @@
 <script>
+
 import {store} from '../store.js';
 import AppCardFilm from './AppCardFilm.vue';
 import AppCardSeries from './AppCardSeries.vue';
@@ -19,28 +20,29 @@ export default{
 <template>
 
     <div class="container">
+        <h1>Film</h1>
         <div class="row">
-            
-                <h1>Film</h1>
                 <div v-for="film,index in store.filmList" :key="index">
                     <AppCardFilm 
+                    :imageFilm="film.poster_path"
                     :filmTitle="film.original_title"
                     :title="film.title"
                     :languageFilm="film.original_language"
-                    :vote="film.vote_average"
+                    :valutation="film.vote_average"
+                    :overview="film.overview"
                     />
                 </div>
-    
         </div>
+        <h1>Serie Tv</h1>
         <div class="row">
-            
-                <h1>Serie Tv</h1>
                 <div v-for="series,index in store.seriesList" :key="index">
                     <AppCardSeries 
+                    :imageSeries="series.poster_path"
                     :seriesTitle="series.original_name"
                     :name="series.name"
                     :languageSeries="series.original_language"
-                    :voteSeries="series.vote_average"
+                    :valutationTv="series.vote_average"
+                    :overviewSeries="series.overview"
                     />
                 </div>
         
@@ -50,5 +52,19 @@ export default{
 </template>
 
 <style scoped lang="scss">
+@use '../styles/general.scss' as *;
+
+.container{
+    padding: 2rem;
+
+    h1{
+        margin-bottom: 2rem;
+    }
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 </style>
