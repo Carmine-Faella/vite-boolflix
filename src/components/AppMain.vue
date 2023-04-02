@@ -20,7 +20,7 @@ export default{
 <template>
 
     <div class="container">
-        <h1>Film</h1>
+        <h1 v-if='this.store.filmList.length > 0'>Film</h1>
         <div class="row">
                 <div v-for="film,index in store.filmList" :key="index">
                     <AppCardFilm 
@@ -33,7 +33,7 @@ export default{
                     />
                 </div>
         </div>
-        <h1>Serie Tv</h1>
+        <h1 v-if='this.store.filmList.length > 0'>Serie Tv</h1>
         <div class="row">
                 <div v-for="series,index in store.seriesList" :key="index">
                     <AppCardSeries 
@@ -45,26 +45,12 @@ export default{
                     :overviewSeries="series.overview"
                     />
                 </div>
-        
         </div>
     </div>
-
+   
 </template>
 
 <style scoped lang="scss">
 @use '../styles/general.scss' as *;
-
-.container{
-    padding: 2rem;
-
-    h1{
-        margin-bottom: 2rem;
-    }
-}
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
 </style>
