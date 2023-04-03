@@ -31,21 +31,29 @@ export default{
       <img :src="getImage(imageFilm)" :alt="title">
     </div>
     <div class="flip-card-back">
-      <h5>{{ filmTitle }}</h5>
-      <h5>{{ title }}</h5>
-      <div v-if="languageFilm == 'en'"><img src="../assets/Flag-of-Great-Britain-01-1-150x150.png" alt="Flag of Britain"></div>
-      <div v-else-if="languageFilm == 'it'"><img src="../assets/Flag-of-Italy-01-1-150x150.png" alt="Flag of Italy"></div>
-      <div v-else>{{ languageFilm }}</div>
-      <h5>{{ Math.ceil(valutation*(5/10)) }}</h5>
-      <p>{{ overview }}</p>
+      <h5 v-if="filmTitle == title">Titolo Originale:{{ filmTitle }}</h5>
+      <div v-else>
+        <h5>Titolo Originale:{{ filmTitle }}</h5>
+        <h5>Titolo:{{ title }}</h5>
+      </div>
+      <div v-if="languageFilm == 'en'">Lingua Originale:<img src="../assets/Flag-of-Great-Britain-01-1-150x150.png" alt="Flag of Britain"></div>
+      <div v-else-if="languageFilm == 'it'">Lingua Originale:<img src="../assets/Flag-of-Italy-01-1-150x150.png" alt="Flag of Italy"></div>
+      <div v-else-if="languageFilm == 'fr'">Lingua Originale:<img src="../assets/Flag-of-France-01-1-150x150.png" alt="Flag of France"></div>
+      <div v-else>Lingua Originale:{{ languageFilm }}</div>
+      <h5>Voto:{{ Math.ceil(valutation*(5/10)) }}</h5>
+      <h6>Trama</h6>
+      <p>{{ overview }}</p> 
     </div>
   </div>
-</div> 
-             
+</div>         
 </template>
 
 <style scoped lang="scss">
 @use '../styles/general.scss' as *;
+
+h5, h6{
+  padding: 10px 0;
+}
 
 
 </style>
