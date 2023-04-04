@@ -25,10 +25,6 @@ export default{
         urlSeries += `&query=${store.search}`;
       };
 
-      if(store.change == store.filmList.genre_ids){
-        url+=`&query=${store.search}`;
-      }
-
       axios.get(url)
       .then(response=>{
         this.store.filmList = response.data.results;
@@ -46,17 +42,28 @@ export default{
 
       store.search=''
     },
-    getGenre(){
-      if(store.change == store.filmList){
-        store.filmList.forEach(element => {
-          console.log(element.genre_ids[0])
-        })
-      }
+    getChange(){
+      let urlChange = 'https://api.themoviedb.org/3/discover/movie?api_key=b12dac9a65df8782bbd74dadfa3c5f7b&with_genres=';
+      let urlChangeSerie = 'https://api.themoviedb.org/3/discover/tv?api_key=b12dac9a65df8782bbd74dadfa3c5f7b&with_genres=';
+
+      urlChange += store.change;
+      urlChangeSerie += store.change;
+
+      axios.get(urlChange)
+      .then(response=>{
+        this.store.filmList = response.data.results;
+      });
+
+      axios.get(urlChangeSerie)
+      .then(response=>{
+        this.store.seriesList = response.data.results;
+      });
+    
+      store.change=''
     }
   },
   created(){
     this.getFilm();
-    this.getGenre();
   }
 }
 
@@ -68,7 +75,7 @@ export default{
   <header>
     <AppHeader 
     @doSearch="getFilm"
-    @doChange="getGenre"
+    @doChange = 'getChange'
     />
   </header>
 

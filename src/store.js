@@ -6,6 +6,7 @@ export const store = reactive(
         seriesList:[],
         search:'',
         change:'',
-        genre:[]
+        genre:[],
+        people:[]
     }
 )

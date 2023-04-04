@@ -47,10 +47,14 @@ export default{
                 </div>
         </div>
     </div>
-   
+    <h1 v-if="(store.filmList.length == 0) && (store.seriesList.length == 0)">Nessun Risultato</h1>
 </template>
 
 <style scoped lang="scss">
 @use '../styles/general.scss' as *;
 
+h1{
+    color: white;
+    padding-left: 1rem;
+}
 </style>
