@@ -35,5 +35,9 @@ input, select{
     background: none;
     color: white;
     border: none;
+    margin: 0 2rem;
+    padding: 1rem;
 }
+
+
 </style>
