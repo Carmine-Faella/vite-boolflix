@@ -1,6 +1,5 @@
 <script>
 import {store} from '../store.js';
-
 export default{
   data(){
     return{
@@ -52,27 +51,7 @@ export default{
 
 <style scoped lang="scss">
 @use '../styles/general.scss' as *;
-
 h5, h6{
   padding: 10px 0;
 }
-
-
 </style>
-
-<!--<div class="star-rating" data-rating="4.6">
-        <div class="empty-stars">
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>                     
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-          <i class="fa-regular fa-star"></i>
-        </div>
-        <div class="full-stars">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>                      
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-    </div>-->  

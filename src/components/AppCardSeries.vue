@@ -1,6 +1,5 @@
 <script>
 import {store} from '../store.js';
-
 export default{
   data(){
     return{
@@ -52,9 +51,7 @@ export default{
 
 <style scoped lang="scss">
 @use '../styles/general.scss' as *;
-
 h5, h6{
   padding: 10px 0;
 }
-
 </style>

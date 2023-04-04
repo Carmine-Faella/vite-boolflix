@@ -1,5 +1,4 @@
 <script>
-
 import {store} from '../store.js';
 import AppCardFilm from './AppCardFilm.vue';
 import AppCardSeries from './AppCardSeries.vue';
@@ -52,7 +51,6 @@ export default{
 
 <style scoped lang="scss">
 @use '../styles/general.scss' as *;
-
 h1{
     color: white;
     padding-left: 1rem;

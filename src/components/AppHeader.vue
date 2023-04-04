@@ -1,6 +1,5 @@
 <script>
 import {store} from '../store.js';
-
 export default{
     data(){
         return{
@@ -29,15 +28,12 @@ export default{
 
 <style scoped lang="scss">
 @use '../styles/general.scss' as *;
-
 img{
     width: 150px;
 }
-
 input, select{
     background: none;
     color: white;
     border: none;
 }
-
 </style>
