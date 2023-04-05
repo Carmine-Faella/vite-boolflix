@@ -31,7 +31,9 @@ export default{
           axios.get(`https://api.themoviedb.org/3/movie/${store.filmList[i].id}/credits?api_key=${store.apiKey}`)
           .then(response=>{
             this.store.cast = response.data.cast;
-            this.store.filmList[i].cast = this.store.cast
+            if(this.store.cast.length>=5){
+              this.store.filmList[i].cast = this.store.cast.splice(0,5)
+            }
           })    
         }
       });

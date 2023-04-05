@@ -53,7 +53,7 @@ export default{
       <h6>Trama</h6>
       <p>{{ overview }}</p> 
       <h5>Cast</h5>
-      <p v-for="cast in cast">{{ cast.name }}</p>
+      <p v-for="cast,index in cast" :key="index">{{ cast.name }}</p>
     </div>
   </div>
 </div>        
