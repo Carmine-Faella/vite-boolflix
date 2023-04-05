@@ -19,7 +19,7 @@ export default{
 <template>
 
     <div class="container">
-        <h1 v-if='this.store.filmList.length > 0'>Film</h1>
+        <h1 v-show="this.store.filmList.length>0">Film</h1>
         <div class="row">
                 <div v-for="film,index in store.filmList" :key="index">
                     <AppCardFilm 
@@ -32,7 +32,7 @@ export default{
                     />
                 </div>
         </div>
-        <h1 v-if='this.store.filmList.length > 0'>Serie Tv</h1>
+        <h1 v-show="this.store.seriesList.length>0">Serie Tv</h1>
         <div class="row">
                 <div v-for="series,index in store.seriesList" :key="index">
                     <AppCardSeries 

@@ -31,24 +31,36 @@ export default{
       .then(response=>{
         this.store.seriesList = response.data.results;
       });
+
       axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${store.apiKey}&language=it-IT&query`)
       .then(response=>{
         this.store.genre = response.data.genres;
       });
+
+      axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${store.apiKey}&language=it-IT&query`)
+      .then(response=>{
+        this.store.genreTv = response.data.genres;
+      });
+
       store.search=''
     },
     getChange(){
 
-      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${store.apiKey}&with_genres=${store.change}`)
-      .then(response=>{
-        this.store.filmList = response.data.results;
-      });
-      axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${store.apiKey}&with_genres=${store.change}`)
-      .then(response=>{
-        this.store.seriesList = response.data.results;
-      });
-    
-      store.change=''
+      if(store.change){
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${store.apiKey}&with_genres=${store.change}`)
+        .then(response=>{
+          this.store.filmList = response.data.results;
+        });
+      };
+      if(store.changeTv){
+        axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${store.apiKey}&with_genres=${store.changeTv}`)
+        .then(response=>{
+          this.store.seriesList = response.data.results;
+        });
+      }
+      
+      store.change='';
+      store.changeTv=''
     }
   },
   created(){
