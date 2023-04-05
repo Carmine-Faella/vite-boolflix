@@ -10,6 +10,7 @@ export const store = reactive(
         changeTv:'',
         genre:[],
         genreTv:[],
-        cast:[]
+        cast:[],
+        castTv:[]
     }
 )

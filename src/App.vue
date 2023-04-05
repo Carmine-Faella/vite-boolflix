@@ -26,7 +26,16 @@ export default{
       axios.get(url)
       .then(response=>{
         this.store.filmList = response.data.results;
+
+        for(let i = 0; i<this.store.filmList.length; i++){
+          axios.get(`https://api.themoviedb.org/3/movie/${store.filmList[i].id}/credits?api_key=${store.apiKey}`)
+          .then(response=>{
+            this.store.cast = response.data.cast;
+            this.store.filmList[i].cast = this.store.cast
+          })    
+        }
       });
+
       axios.get(urlSeries)
       .then(response=>{
         this.store.seriesList = response.data.results;
@@ -57,6 +66,11 @@ export default{
         .then(response=>{
           this.store.seriesList = response.data.results;
         });
+
+      axios.get(`https://api.themoviedb.org/3/movie/550/credits?api_key=${store.apiKey}`)
+      .then(response=>{
+        this.store.cast = response.data.cast;
+      });
       }
       
       store.change='';

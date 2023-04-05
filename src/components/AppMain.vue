@@ -29,6 +29,7 @@ export default{
                     :languageFilm="film.original_language"
                     :valutation="film.vote_average"
                     :overview="film.overview"
+                    :cast="film.cast"
                     />
                 </div>
         </div>

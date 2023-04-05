@@ -17,7 +17,7 @@ export default{
     name:String,
     languageSeries:String,
     valutationTv:Number,
-    overviewSeries:String
+    overviewSeries:String,
   },
   methods:{
     getImage(img){

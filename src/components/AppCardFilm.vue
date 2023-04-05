@@ -18,7 +18,8 @@ export default{
     title:String,
     languageFilm:String,
     valutation:Number,
-    overview:String
+    overview:String,
+    cast:Array
   },
   methods:{
     getImage(img){
@@ -51,6 +52,8 @@ export default{
       
       <h6>Trama</h6>
       <p>{{ overview }}</p> 
+      <h5>Cast</h5>
+      <p v-for="cast in cast">{{ cast.name }}</p>
     </div>
   </div>
 </div>        
