@@ -3,6 +3,7 @@ import axios from 'axios';
 import {store} from './store.js';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+
 export default{
   components:{
     AppHeader,
@@ -15,9 +16,9 @@ export default{
   },
   methods:{
     getFilm(){
-      let url = 'https://api.themoviedb.org/3/search/movie?api_key=b12dac9a65df8782bbd74dadfa3c5f7b&language=it-IT';
-      let urlSeries = 'https://api.themoviedb.org/3/search/tv?api_key=b12dac9a65df8782bbd74dadfa3c5f7b&language=it-IT';     
-      let urlGenre = 'https://api.themoviedb.org/3/genre/movie/list?api_key=b12dac9a65df8782bbd74dadfa3c5f7b&language=it&query';
+      let url = `https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&language=it-IT`;
+      let urlSeries = `https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&language=it-IT`;     
+
       if(store.search.length > 0){
         url+=`&query=${store.search}`;
         urlSeries += `&query=${store.search}`;
@@ -30,22 +31,19 @@ export default{
       .then(response=>{
         this.store.seriesList = response.data.results;
       });
-      axios.get(urlGenre)
+      axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${store.apiKey}&language=it-IT&query`)
       .then(response=>{
         this.store.genre = response.data.genres;
       });
       store.search=''
     },
     getChange(){
-      let urlChange = 'https://api.themoviedb.org/3/discover/movie?api_key=b12dac9a65df8782bbd74dadfa3c5f7b&with_genres=';
-      let urlChangeSerie = 'https://api.themoviedb.org/3/discover/tv?api_key=b12dac9a65df8782bbd74dadfa3c5f7b&with_genres=';
-      urlChange += store.change;
-      urlChangeSerie += store.change;
-      axios.get(urlChange)
+
+      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${store.apiKey}&with_genres=${store.change}`)
       .then(response=>{
         this.store.filmList = response.data.results;
       });
-      axios.get(urlChangeSerie)
+      axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${store.apiKey}&with_genres=${store.change}`)
       .then(response=>{
         this.store.seriesList = response.data.results;
       });

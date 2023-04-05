@@ -47,7 +47,7 @@ export default{
         <div v-else-if="languageFilm == 'fr'">Lingua Originale:<img src="../assets/Flag-of-France-01-1-150x150.png" alt="Flag of France"></div>
         <div v-else>Lingua Originale:{{ languageFilm }}</div>
 
-      <StarRating :grade="Math.ceil(valutation*(5/10))"/>
+      <StarRating :grade="Math.ceil(valutation/2)"/>
       
       <h6>Trama</h6>
       <p>{{ overview }}</p> 
